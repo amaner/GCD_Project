@@ -55,32 +55,32 @@ tmp <- cbind(tmp[,1:8], tmp[,43:48], tmp[,83:88], tmp[,123:128], tmp[,163:168],
 
 ## give descriptive names to the data columns
 ## commence operation TypeWayTooMuch in 1, 2, 3, ...
-colnames(tmp) <- c("Subject","Activity",
-                   "tBodyAccXmean","tBodyAccYmean","tBodyAccZmean",
-                   "tBodyAccXstd","tBodyAccYstd","tBodyAccZstd",
-                   "tGravityAccXmean","tGravityAccYmean","tGravityAccZmean",
-                   "tGravityAccXstd","tGravityAccYstd","tGravityAccZstd",
-                   "tBodyAccJerkXmean","tBodyAccJerkYmean","tBodyAccJerkZmean",
-                   "tBodyAccJerkXstd","tBodyAccJerkYstd","tBodyAccJerkZstd",
-                   "tBodyGyroXmean","tBodyGyroYmean","tBodyGyroZmean",
-                   "tBodyGyroXstd","tBodyGyroYstd","tBodyGyroZstd",
-                   "tBodyGyroJerkXmean","tBodyGyroJerkYmean","tBodyGyroJerkZmean",
-                   "tBodyGyroJerkXstd","tBodyGyroJerkYstd","tBodyGyroJerkZstd",
-                   "tBodyAccMagmean","tBodyAccMagstd",
-                   "tGravityAccMagmean","tGravityAccMagstd",
-                   "tBodyAccJerkMagmean","tBodyAccJerkMagstd",
-                   "tBodyGyroMagmean","tBodyGyroMagstd",
-                   "tBodyGyroJerkMagmean","tBodyGyroJerkMagstd",
-                   "fBodyAccXmean","fBodyAccYmean","fBodyAccZmean",
-                   "fBodyAccXstd","fBodyAccYstd","fBodyAccZstd",
-                   "fBodyAccXmean","fBodyAccYmean","fBodyAccZmean",
-                   "fBodyAccXstd","fBodyAccYstd","fBodyAccZstd",
-                   "fBodyGyroXmean","fBodyGyroYmean","fBodyGyroZmean",
-                   "fBodyGyroXstd","fBodyGyroYstd","fBodyGyroZstd",
-                   "fBodyAccMagmean","fBodyAccMagstd",
-                   "fBodyAccJerkMagmean","fBodyAccJerkMagstd",
-                   "fBodyGyroMagmean","fBodyGyroMagstd",
-                   "fBodyGyroJerkMagmean","fBodyGyroJerkMagstd")
+colnames(tmp) <- c("subject","activity",
+                   "tbodyaccxmean","tbodyaccymean","tbodyacczmean",
+                   "tbodyaccxstd","tbodyaccystd","tbodyacczstd",
+                   "tgravityaccxmean","tgravityaccymean","tgravityacczmean",
+                   "tgravityaccxstd","tgravityaccystd","tgravityacczstd",
+                   "tbodyaccjerkxmean","tbodyaccjerkymean","tbodyaccjerkzmean",
+                   "tbodyaccjerkxstd","tbodyaccjerkystd","tbodyaccjerkzstd",
+                   "tbodygyroxmean","tbodygyroymean","tbodygyrozmean",
+                   "tbodygyroxstd","tbodygyroystd","tbodygyrozstd",
+                   "tbodygyrojerkxmean","tbodygyrojerkymean","tbodygyrojerkzmean",
+                   "tbodygyrojerkxstd","tbodygyrojerkystd","tbodygyrojerkzstd",
+                   "tbodyaccmagmean","tbodyaccmagstd",
+                   "tgravityaccmagmean","tgravityaccmagstd",
+                   "tbodyaccjerkmagmean","tbodyaccjerkmagstd",
+                   "tbodygyromagmean","tbodygyromagstd",
+                   "tbodygyrojerkmagmean","tbodygyrojerkmagstd",
+                   "fbodyaccxmean","fbodyaccymean","fbodyacczmean",
+                   "fbodyaccxstd","fbodyaccystd","fbodyacczstd",
+                   "fbodyaccxmean","fbodyaccymean","fbodyacczmean",
+                   "fbodyaccxXstd","fbodyaccystd","fbodyacczstd",
+                   "fbodygyroxmean","fbodygyroymean","fbodygyrozmean",
+                   "fbodygyroxstd","fbodygyroystd","fbodygyrozstd",
+                   "fbodyaccmagmean","fbodyaccmagstd",
+                   "fbodyaccjerkmagmean","fbodyaccjerkmagstd",
+                   "fbodygyromagmean","fbodygyromagstd",
+                   "fbodygyrojerkmagmean","fbodygyrojerkmagstd")
 ## now the data sets are merged, the proper subsets have been made, and
 ## the variables are labeled in a reasonable fashion
 ## now to proceed with the output portion
@@ -103,54 +103,54 @@ for (i in 19:24) out[i,2] = activities$V2[i-18]
 for (i in 25:30) out[i,2] = activities$V2[i-24]
 for (i in 31:36) out[i,2] = activities$V2[i-30]
 ## give meaningful names to out columns
-colnames(out) <- c("Subject","Activity")
+colnames(out) <- c("subject","activity")
 ## start to pull out the means for each column in our data frame
 ## use the plyr library for colwise application of mean function
 library(plyr)
 ## create subsets for each subject
-sub1 <- subset(tmp,tmp$Subject == 1)
-sub2 <- subset(tmp,tmp$Subject == 2)
-sub3 <- subset(tmp,tmp$Subject == 3)
-sub4 <- subset(tmp,tmp$Subject == 4)
-sub5 <- subset(tmp,tmp$Subject == 5)
-sub6 <- subset(tmp,tmp$Subject == 6)
+sub1 <- subset(tmp,tmp$subject == 1)
+sub2 <- subset(tmp,tmp$subject == 2)
+sub3 <- subset(tmp,tmp$subject == 3)
+sub4 <- subset(tmp,tmp$subject == 4)
+sub5 <- subset(tmp,tmp$subject == 5)
+sub6 <- subset(tmp,tmp$subject == 6)
 ## subset each by activity
-sub11 <- subset(sub1,sub1$Activity == 1)
-sub12 <- subset(sub1,sub1$Activity == 2)
-sub13 <- subset(sub1,sub1$Activity == 3)
-sub14 <- subset(sub1,sub1$Activity == 4)
-sub15 <- subset(sub1,sub1$Activity == 5)
-sub16 <- subset(sub1,sub1$Activity == 6)
-sub21 <- subset(sub2,sub2$Activity == 1)
-sub22 <- subset(sub2,sub2$Activity == 2)
-sub23 <- subset(sub2,sub2$Activity == 3)
-sub24 <- subset(sub2,sub2$Activity == 4)
-sub25 <- subset(sub2,sub2$Activity == 5)
-sub26 <- subset(sub2,sub2$Activity == 6)
-sub31 <- subset(sub3,sub3$Activity == 1)
-sub32 <- subset(sub3,sub3$Activity == 2)
-sub33 <- subset(sub3,sub3$Activity == 3)
-sub34 <- subset(sub3,sub3$Activity == 4)
-sub35 <- subset(sub3,sub3$Activity == 5)
-sub36 <- subset(sub3,sub3$Activity == 6)
-sub41 <- subset(sub4,sub4$Activity == 1)
-sub42 <- subset(sub4,sub4$Activity == 2)
-sub43 <- subset(sub4,sub4$Activity == 3)
-sub44 <- subset(sub4,sub4$Activity == 4)
-sub45 <- subset(sub4,sub4$Activity == 5)
-sub46 <- subset(sub4,sub4$Activity == 6)
-sub51 <- subset(sub5,sub5$Activity == 1)
-sub52 <- subset(sub5,sub5$Activity == 2)
-sub53 <- subset(sub5,sub5$Activity == 3)
-sub54 <- subset(sub5,sub5$Activity == 4)
-sub55 <- subset(sub5,sub5$Activity == 5)
-sub56 <- subset(sub5,sub5$Activity == 6)
-sub61 <- subset(sub6,sub6$Activity == 1)
-sub62 <- subset(sub6,sub6$Activity == 2)
-sub63 <- subset(sub6,sub6$Activity == 3)
-sub64 <- subset(sub6,sub6$Activity == 4)
-sub65 <- subset(sub6,sub6$Activity == 5)
-sub66 <- subset(sub6,sub6$Activity == 6)
+sub11 <- subset(sub1,sub1$activity == 1)
+sub12 <- subset(sub1,sub1$activity == 2)
+sub13 <- subset(sub1,sub1$activity == 3)
+sub14 <- subset(sub1,sub1$activity == 4)
+sub15 <- subset(sub1,sub1$activity == 5)
+sub16 <- subset(sub1,sub1$activity == 6)
+sub21 <- subset(sub2,sub2$activity == 1)
+sub22 <- subset(sub2,sub2$activity == 2)
+sub23 <- subset(sub2,sub2$activity == 3)
+sub24 <- subset(sub2,sub2$activity == 4)
+sub25 <- subset(sub2,sub2$activity == 5)
+sub26 <- subset(sub2,sub2$activity == 6)
+sub31 <- subset(sub3,sub3$activity == 1)
+sub32 <- subset(sub3,sub3$activity == 2)
+sub33 <- subset(sub3,sub3$activity == 3)
+sub34 <- subset(sub3,sub3$activity == 4)
+sub35 <- subset(sub3,sub3$activity == 5)
+sub36 <- subset(sub3,sub3$activity == 6)
+sub41 <- subset(sub4,sub4$activity == 1)
+sub42 <- subset(sub4,sub4$activity == 2)
+sub43 <- subset(sub4,sub4$activity == 3)
+sub44 <- subset(sub4,sub4$activity == 4)
+sub45 <- subset(sub4,sub4$activity == 5)
+sub46 <- subset(sub4,sub4$activity == 6)
+sub51 <- subset(sub5,sub5$activity == 1)
+sub52 <- subset(sub5,sub5$activity == 2)
+sub53 <- subset(sub5,sub5$activity == 3)
+sub54 <- subset(sub5,sub5$activity == 4)
+sub55 <- subset(sub5,sub5$activity == 5)
+sub56 <- subset(sub5,sub5$activity == 6)
+sub61 <- subset(sub6,sub6$activity == 1)
+sub62 <- subset(sub6,sub6$activity == 2)
+sub63 <- subset(sub6,sub6$activity == 3)
+sub64 <- subset(sub6,sub6$activity == 4)
+sub65 <- subset(sub6,sub6$activity == 5)
+sub66 <- subset(sub6,sub6$activity == 6)
 ## take the colwise means and glue back into each subject frame
 ## free up memory as you go
 sub11 <- colwise(mean)(sub11[,3:68])
@@ -205,7 +205,7 @@ rm(sub61,sub62,sub63,sub64,sub65,sub66)
 sub <- rbind(sub1,sub2,sub3,sub4,sub5,sub6)
 ## glue out and sub together to make the tidy output frame
 out <- cbind(out,sub)
-out$Activity <- as.character(out$Activity)
+out$activity <- as.character(out$activity)
 ## free up a bunch of memory
 rm(sub1,sub2,sub3,sub4,sub5,sub6,tmp,test,train,activities,sub)
 ## write the file
