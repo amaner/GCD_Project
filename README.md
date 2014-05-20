@@ -5,7 +5,7 @@ reads in, processes, and outputs data as described in CODEBOOK.md
 
 Assumptions:  All referenced files are in a working directory called "code,"
               which sits inside of the user's home directory.  (I am working
-              on a Linux machine, so "~/code" translates to "/home/<my username>/code".)
+              on a Linux machine, so "~/code" translates to "/home/username/code".)
 
 Pseudocode/steps:
 
