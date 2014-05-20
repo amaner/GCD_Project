@@ -73,8 +73,8 @@ colnames(tmp) <- c("subject","activity",
                    "tbodygyrojerkmagmean","tbodygyrojerkmagstd",
                    "fbodyaccxmean","fbodyaccymean","fbodyacczmean",
                    "fbodyaccxstd","fbodyaccystd","fbodyacczstd",
-                   "fbodyaccxmean","fbodyaccymean","fbodyacczmean",
-                   "fbodyaccxXstd","fbodyaccystd","fbodyacczstd",
+                   "fbodyaccjerkxmean","fbodyaccjerkymean","fbodyaccjerkzmean",
+                   "fbodyaccjerkxstd","fbodyaccjerkystd","fbodyaccjerkzstd",
                    "fbodygyroxmean","fbodygyroymean","fbodygyrozmean",
                    "fbodygyroxstd","fbodygyroystd","fbodygyrozstd",
                    "fbodyaccmagmean","fbodyaccmagstd",
@@ -85,128 +85,40 @@ colnames(tmp) <- c("subject","activity",
 ## the variables are labeled in a reasonable fashion
 ## now to proceed with the output portion
 
-## initialize the output data frame
-out <- data.frame()
-## first column is the list of subjects
-## each appears 6 times because each did all 6 activities
-for (i in 1:6)   out[i,1] = 1
-for (i in 7:12)  out[i,1] = 2
-for (i in 13:18) out[i,1] = 3
-for (i in 19:24) out[i,1] = 4
-for (i in 25:30) out[i,1] = 5
-for (i in 31:36) out[i,1] = 6
-## second column is activities
-for (i in 1:6)   out[i,2] = activities$V2[i]
-for (i in 7:12)  out[i,2] = activities$V2[i-6]
-for (i in 13:18) out[i,2] = activities$V2[i-12]
-for (i in 19:24) out[i,2] = activities$V2[i-18]
-for (i in 25:30) out[i,2] = activities$V2[i-24]
-for (i in 31:36) out[i,2] = activities$V2[i-30]
-## give meaningful names to out columns
-colnames(out) <- c("subject","activity")
-## start to pull out the means for each column in our data frame
 ## use the plyr library for colwise application of mean function
 library(plyr)
-## create subsets for each subject
-sub1 <- subset(tmp,tmp$subject == 1)
-sub2 <- subset(tmp,tmp$subject == 2)
-sub3 <- subset(tmp,tmp$subject == 3)
-sub4 <- subset(tmp,tmp$subject == 4)
-sub5 <- subset(tmp,tmp$subject == 5)
-sub6 <- subset(tmp,tmp$subject == 6)
-## subset each by activity
-sub11 <- subset(sub1,sub1$activity == 1)
-sub12 <- subset(sub1,sub1$activity == 2)
-sub13 <- subset(sub1,sub1$activity == 3)
-sub14 <- subset(sub1,sub1$activity == 4)
-sub15 <- subset(sub1,sub1$activity == 5)
-sub16 <- subset(sub1,sub1$activity == 6)
-sub21 <- subset(sub2,sub2$activity == 1)
-sub22 <- subset(sub2,sub2$activity == 2)
-sub23 <- subset(sub2,sub2$activity == 3)
-sub24 <- subset(sub2,sub2$activity == 4)
-sub25 <- subset(sub2,sub2$activity == 5)
-sub26 <- subset(sub2,sub2$activity == 6)
-sub31 <- subset(sub3,sub3$activity == 1)
-sub32 <- subset(sub3,sub3$activity == 2)
-sub33 <- subset(sub3,sub3$activity == 3)
-sub34 <- subset(sub3,sub3$activity == 4)
-sub35 <- subset(sub3,sub3$activity == 5)
-sub36 <- subset(sub3,sub3$activity == 6)
-sub41 <- subset(sub4,sub4$activity == 1)
-sub42 <- subset(sub4,sub4$activity == 2)
-sub43 <- subset(sub4,sub4$activity == 3)
-sub44 <- subset(sub4,sub4$activity == 4)
-sub45 <- subset(sub4,sub4$activity == 5)
-sub46 <- subset(sub4,sub4$activity == 6)
-sub51 <- subset(sub5,sub5$activity == 1)
-sub52 <- subset(sub5,sub5$activity == 2)
-sub53 <- subset(sub5,sub5$activity == 3)
-sub54 <- subset(sub5,sub5$activity == 4)
-sub55 <- subset(sub5,sub5$activity == 5)
-sub56 <- subset(sub5,sub5$activity == 6)
-sub61 <- subset(sub6,sub6$activity == 1)
-sub62 <- subset(sub6,sub6$activity == 2)
-sub63 <- subset(sub6,sub6$activity == 3)
-sub64 <- subset(sub6,sub6$activity == 4)
-sub65 <- subset(sub6,sub6$activity == 5)
-sub66 <- subset(sub6,sub6$activity == 6)
-## take the colwise means and glue back into each subject frame
-## free up memory as you go
-sub11 <- colwise(mean)(sub11[,3:68])
-sub12 <- colwise(mean)(sub12[,3:68])
-sub13 <- colwise(mean)(sub13[,3:68])
-sub14 <- colwise(mean)(sub14[,3:68])
-sub15 <- colwise(mean)(sub15[,3:68])
-sub16 <- colwise(mean)(sub16[,3:68])
-sub1  <- rbind(sub11,sub12,sub13,sub14,sub15,sub16)
-rm(sub11,sub12,sub13,sub14,sub15,sub16)
-sub21 <- colwise(mean)(sub21[,3:68])
-sub22 <- colwise(mean)(sub22[,3:68])
-sub23 <- colwise(mean)(sub23[,3:68])
-sub24 <- colwise(mean)(sub24[,3:68])
-sub25 <- colwise(mean)(sub25[,3:68])
-sub26 <- colwise(mean)(sub26[,3:68])
-sub2  <- rbind(sub21,sub22,sub23,sub24,sub25,sub26)
-rm(sub21,sub22,sub23,sub24,sub25,sub26)
-sub31 <- colwise(mean)(sub31[,3:68])
-sub32 <- colwise(mean)(sub32[,3:68])
-sub33 <- colwise(mean)(sub33[,3:68])
-sub34 <- colwise(mean)(sub34[,3:68])
-sub35 <- colwise(mean)(sub35[,3:68])
-sub36 <- colwise(mean)(sub36[,3:68])
-sub3  <- rbind(sub31,sub32,sub33,sub34,sub35,sub36)
-rm(sub31,sub32,sub33,sub34,sub35,sub36)
-sub41 <- colwise(mean)(sub41[,3:68])
-sub42 <- colwise(mean)(sub42[,3:68])
-sub43 <- colwise(mean)(sub43[,3:68])
-sub44 <- colwise(mean)(sub44[,3:68])
-sub45 <- colwise(mean)(sub45[,3:68])
-sub46 <- colwise(mean)(sub46[,3:68])
-sub4  <- rbind(sub41,sub42,sub43,sub44,sub45,sub46)
-rm(sub41,sub42,sub43,sub44,sub45,sub46)
-sub51 <- colwise(mean)(sub51[,3:68])
-sub52 <- colwise(mean)(sub52[,3:68])
-sub53 <- colwise(mean)(sub53[,3:68])
-sub54 <- colwise(mean)(sub54[,3:68])
-sub55 <- colwise(mean)(sub55[,3:68])
-sub56 <- colwise(mean)(sub56[,3:68])
-sub5 <- rbind(sub51,sub52,sub53,sub54,sub55,sub56)
-rm(sub51,sub52,sub53,sub54,sub55,sub56)
-sub61 <- colwise(mean)(sub61[,3:68])
-sub62 <- colwise(mean)(sub62[,3:68])
-sub63 <- colwise(mean)(sub63[,3:68])
-sub64 <- colwise(mean)(sub64[,3:68])
-sub65 <- colwise(mean)(sub65[,3:68])
-sub66 <- colwise(mean)(sub66[,3:68])
-sub6  <- rbind(sub61,sub62,sub63,sub64,sub65,sub66)
-rm(sub61,sub62,sub63,sub64,sub65,sub66)
-## now glue all of the subsets together
-sub <- rbind(sub1,sub2,sub3,sub4,sub5,sub6)
-## glue out and sub together to make the tidy output frame
-out <- cbind(out,sub)
-out$activity <- as.character(out$activity)
-## free up a bunch of memory
-rm(sub1,sub2,sub3,sub4,sub5,sub6,tmp,test,train,activities,sub)
+## initialize an output data frame
+out <- data.frame()
+## loop through the 30 subjects, subsetting each time by subject
+## and then by activity.  calculate colwise means for each subject.
+## glue together the resulting 1 observation data frames into 
+## 6 observation data frame with subject and activity labels.
+## at end of loop, glue this data frame (in a row-wise fashion)
+## into the output frame
+for (i in 1:30) {
+     acts <- c("walking","walkingupstairs","walkingdownstairs","sitting","standing","laying")
+     acts <- as.data.frame(acts)
+     acts$acts <- as.character(acts$acts)
+     subj <- rep(i,6)
+     subj <- as.data.frame(subj)
+     subj$subj <- as.numeric(subj$subj)
+     subs  <- subset(tmp,tmp$subject == i)
+     subs1 <- subset(subs,subs$activity == 1)
+     subs1 <- colwise(mean)(subs1[,3:68])
+     subs2 <- subset(subs,subs$activity == 2)
+     subs2 <- colwise(mean)(subs2[,3:68])
+     subs3 <- subset(subs,subs$activity == 3)
+     subs3 <- colwise(mean)(subs3[,3:68])
+     subs4 <- subset(subs,subs$activity == 4)
+     subs4 <- colwise(mean)(subs4[,3:68])
+     subs5 <- subset(subs,subs$activity == 5)
+     subs5 <- colwise(mean)(subs5[,3:68])
+     subs6 <- subset(subs,subs$activity == 6)
+     subs6 <- colwise(mean)(subs6[,3:68])
+     subs <- rbind(subs1,subs2,subs3,subs4,subs5,subs6)
+     outtmp <- cbind(subj,acts,subs)
+     out <- rbind(out,outtmp)
+}
+## we now have our tidy dataset stored in the out data frame
 ## write the file
-write.table(out, file="GCDProject_amaner_05182014.txt", sep=" ",eol="\n",row.names=FALSE)
+write.table(out, file="GCDProject_amaner_05182014.txt", sep="\t",eol="\n",row.names=FALSE)
