@@ -119,6 +119,9 @@ for (i in 1:30) {
      outtmp <- cbind(subj,acts,subs)
      out <- rbind(out,outtmp)
 }
+## free some memory
+rm(acts,outtmp,subj,subs,subs1,subs2,subs3,subs4,subs5,subs6)
+rm(test,train,tmp,activities)
 ## we now have our tidy dataset stored in the out data frame
 ## write the file
 write.table(out, file="GCDProject_amaner_05182014.txt", sep="\t",eol="\n",row.names=FALSE)

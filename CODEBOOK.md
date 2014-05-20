@@ -44,75 +44,71 @@ NOTE:  ALL VARIABLES IN COLUMNS 3 - 68 ARE OF CLASS NUMERIC.  COLUMNS 1 & 2
 ARE OF CLASS CHARACTER.
 
 ## Code Book
-Col  Label   Description
-1  	"subject" - A subject number (1 - 30)
-2  	"activity" - An activity label (walking, walking_upstairs, 
-                 walking_downstairs, sitting, standing, laying)
-3  	"tbodyaccxmean"     - per activity (pa) mean of mean time domain 
-						  body acceleration (acc) x component (comp)
-4  	"tbodyaccymean"     - pa mean of mean time domain body acc y comp
-5  	"tbodyacczmean"     - pa mean of mean time domain body acc z comp
-6  	"tbodyaccxstd"      - pa mean of standard deviation (stdev) of time 
-						  domain body acc x comp
-7  	"tbodyaccystd"      - pa mean of stdev of time domain body acc y comp
-8  	"tbodyacczstd"      - pa mean of stdev of time domain body acc z comp
-9 	"tgravityaccxmean"  - pa mean of mean time domain gravity acc x comp
-10 	"tgravityaccymean"  - pa mean of mean time domain gravity acc y comp
-11 	"tgravityacczmean"  - pa mean of mean time domain gravity acc z comp
-12 	"tgravityaccxstd"   - pa mean of stdev of time domain gravity acc x comp
-13 	"tgravityaccystd"   - pa mean of stdev of time domain gravity acc y comp
-14 	"tgravityacczstd"   - pa mean of stdev of time domain gravity acc z comp
-15 	"tbodyaccjerkxmean" - pa mean of mean time domain body jerk x comp
-16 	"tbodyaccjerkymean" - pa mean of mean time domain body jerk y comp
-17 	"tbodyaccjerkzmean" - pa mean of mean time domain body jerk z comp
-18 	"tbodyaccjerkxstd"  - pa mean of stdev of time domain body jerk x comp
-19	"tbodyaccjerkystd"  - pa mean of stdev of time domain body jerk y comp
-20 	"tbodyaccjerkzstd"  - pa mean of stdev of time domain body jerk z comp
-21	"tbodygyroxmean"	- pa mean of mean time domain gyroscope (gyro) x comp
-22	"tbodygyroymean"	- pa mean of mean time domain gyro y comp
-23	"tbodygyrozmean"	- pa mean of mean time domain gyro z comp
-24 	"tbodygyroxstd"		- pa mean of stdev of time domain gyro x comp
-25 	"tbodygyroystd"		- pa mean of stdev of time domain gyro y comp
-26	"tbodygyrozstd"		- pa mean of stdev of time domain gyro z comp
-27	"tbodygyrojerkxmean"- pa mean of mean time domain gyro jerk x comp
-28	"tbodygyrojerkymean"- pa mean of mean time domain gyro jerk y comp
-29	"tbodygyrojerkzmean"- pa mean of mean time domain gyro jerk z comp
-30	"tbodygyrojerkxstd" - pa mean of stdev of time domain gyro jerk x comp
-31	"tbodygyrojerkystd" - pa mean of stdev of time domain gyro jerk y comp
-32  "tbodygyrojerkzstd" - pa mean of stdev of time domain gyro jerk z comp
-33  "tbodyaccmagmean"   - pa mean of mean time domain body acc magnitude (mag)
-34  "tbodyaccmagstd"    - pa mean of stdev of time domain body acc mag
-35  "tgravityaccmagmean"- pa mean of mean time domain gravity acc mag
-36  "tgravityaccmagstd" - pa mean of stdev of time domain gravity acc mag
-37  "tbodyaccjerkmagmean"- pa mean of mean time domain body jerk mag
-38  "tbodyaccjerkmagstd"- pa mean of stdev of time domain body jerk mag
-39  "tbodygyromagmean"  - pa mean of mean time domain body gyro mag
-40  "tbodygyromagstd"   - pa mean of stdev of time domain body gyro mag
-41  "tbodygyrojerkmagmean"- pa mean of mean time domain body gyro jerk mag
-42  "tbodygyrojerkmagstd"- pa mean of stdev of time domain body gyro jerk mag
-43  "fbodyaccxmean"     - pa mean of mean body x acc comp in frequency (freq) domain
-44  "fbodyaccymean"     - pa mean of mean body y acc comp in freq domain
-45  "fbodyacczmean"     - pa mean of mean body z acc comp in freq domain
-46  "fbodyaccxstd"		- pa mean of stdev of body x acc comp in freq domain
-47  "fbodyaccystd"		- pa mean of stdev of body y acc comp in freq domain
-48  "fbodyacczstd"		- pa mean of stdev of body z acc comp in freq domain
-49  "fbodyaccjerkxmean" - pa mean of mean body x jerk comp in freq domain
-50  "fbodyaccjerkymean" - pa mean of mean body y jerk comp in freq domain
-51  "fbodyaccjerkzmean" - pa mean of mean body z jerk comp in freq domain
-52  "fbodyaccjerkxstd"  - pa mean of stdev of body x jerk comp in freq domain
-53  "fbodyaccjerkystd"  - pa mean of stdev of body y jerk comp in freq domain
-54  "fbodyaccjerkzstd"  - pa mean of stdev of body z jerk comp in freq domain
-55  "fbodygyroxmean"	- pa mean of mean body gyro x comp in freq domain
-56  "fbodygyroymean"	- pa mean of mean body gyro y comp in freq domain
-57  "fbodygyrozmean"  	- pa mean of mean body gyro z comp in freq domain
-58  "fbodygyroxstd"		- pa mean of stdev of body gyro x comp in freq domain
-59  "fbodygyroystd"  	- pa mean of stdev of body gyro y comp in freq domain
-60  "fbodygyrozstd"		- pa mean of stdev of body gyro z comp in freq domain
-61  "fbodyaccmagmean"	- pa mean of mean body acc mag in freq domain
-62	"fbodyaccmagstd"	- pa mean of stdev of body acc mag in freq domain
-63  "fbodyaccjerkmagmean"- pa mean of mean body jerk mag in freq domain
-64  "fbodyaccjerkmagstd"- pa mean of stdev of body jerk mag in freq domain
-65  "fbodygyromagmean"	- pa mean of mean body gyro mag in freq domain
-66  "fbodygyromagstd"	- pa mean of stdev of body gyro mag in freq domain
-67	"fbodygyrojerkmagmean"- pa mean of mean body gyro jerk mag in freq domain
-68  "fbodygyrojerkmagstd"- pa mean of stdev of bory gyro jerk mag in freq domain
+* C1  	"subject"           - A subject number (1 - 30)
+* C2  	"activity"          - An activity label (walking, walking_upstairs, walking_downstairs, sitting, standing, laying)
+* C3  	"tbodyaccxmean"     - per activity (pa) mean of mean time domain body acceleration (acc) x component (comp)
+* C4  	"tbodyaccymean"     - pa mean of mean time domain body acc y comp
+* C5  	"tbodyacczmean"     - pa mean of mean time domain body acc z comp
+* C6  	"tbodyaccxstd"      - pa mean of standard deviation (stdev) of time domain body acc x comp
+* C7  	"tbodyaccystd"      - pa mean of stdev of time domain body acc y comp
+* C8  	"tbodyacczstd"      - pa mean of stdev of time domain body acc z comp
+* C9 	"tgravityaccxmean"  - pa mean of mean time domain gravity acc x comp
+* C10 	"tgravityaccymean"  - pa mean of mean time domain gravity acc y comp
+* C11 	"tgravityacczmean"  - pa mean of mean time domain gravity acc z comp
+* C12 	"tgravityaccxstd"   - pa mean of stdev of time domain gravity acc x comp
+* C13 	"tgravityaccystd"   - pa mean of stdev of time domain gravity acc y comp
+* C14 	"tgravityacczstd"   - pa mean of stdev of time domain gravity acc z comp
+* C15 	"tbodyaccjerkxmean" - pa mean of mean time domain body jerk x comp
+* C16 	"tbodyaccjerkymean" - pa mean of mean time domain body jerk y comp
+* C17 	"tbodyaccjerkzmean" - pa mean of mean time domain body jerk z comp
+* C18 	"tbodyaccjerkxstd"  - pa mean of stdev of time domain body jerk x comp
+* C19	"tbodyaccjerkystd"  - pa mean of stdev of time domain body jerk y comp
+* C20 	"tbodyaccjerkzstd"  - pa mean of stdev of time domain body jerk z comp
+* C21	"tbodygyroxmean"	- pa mean of mean time domain gyroscope (gyro) x comp
+* C22	"tbodygyroymean"	- pa mean of mean time domain gyro y comp
+* C23	"tbodygyrozmean"	- pa mean of mean time domain gyro z comp
+* C24 	"tbodygyroxstd"		- pa mean of stdev of time domain gyro x comp
+* C25 	"tbodygyroystd"		- pa mean of stdev of time domain gyro y comp
+* C26	"tbodygyrozstd"		- pa mean of stdev of time domain gyro z comp
+* C27	"tbodygyrojerkxmean"- pa mean of mean time domain gyro jerk x comp
+* C28	"tbodygyrojerkymean"- pa mean of mean time domain gyro jerk y comp
+* C29	"tbodygyrojerkzmean"- pa mean of mean time domain gyro jerk z comp
+* C30	"tbodygyrojerkxstd" - pa mean of stdev of time domain gyro jerk x comp
+* C31	"tbodygyrojerkystd" - pa mean of stdev of time domain gyro jerk y comp
+* C32  "tbodygyrojerkzstd"  - pa mean of stdev of time domain gyro jerk z comp
+* C33  "tbodyaccmagmean"    - pa mean of mean time domain body acc magnitude (mag)
+* C34  "tbodyaccmagstd"     - pa mean of stdev of time domain body acc mag
+* C35  "tgravityaccmagmean" - pa mean of mean time domain gravity acc mag
+* C36  "tgravityaccmagstd"  - pa mean of stdev of time domain gravity acc mag
+* C37  "tbodyaccjerkmagmean"- pa mean of mean time domain body jerk mag
+* C38  "tbodyaccjerkmagstd" - pa mean of stdev of time domain body jerk mag
+* C39  "tbodygyromagmean"   - pa mean of mean time domain body gyro mag
+* C40  "tbodygyromagstd"    - pa mean of stdev of time domain body gyro mag
+* C41  "tbodygyrojerkmagmean"- pa mean of mean time domain body gyro jerk mag
+* C42  "tbodygyrojerkmagstd" - pa mean of stdev of time domain body gyro jerk mag
+* C43  "fbodyaccxmean"      - pa mean of mean body x acc comp in frequency (freq) domain
+* C44  "fbodyaccymean"      - pa mean of mean body y acc comp in freq domain
+* C45  "fbodyacczmean"      - pa mean of mean body z acc comp in freq domain
+* C46  "fbodyaccxstd"		- pa mean of stdev of body x acc comp in freq domain
+* C47  "fbodyaccystd"		- pa mean of stdev of body y acc comp in freq domain
+* C48  "fbodyacczstd"		- pa mean of stdev of body z acc comp in freq domain
+* C49  "fbodyaccjerkxmean"  - pa mean of mean body x jerk comp in freq domain
+* C50  "fbodyaccjerkymean"  - pa mean of mean body y jerk comp in freq domain
+* C51  "fbodyaccjerkzmean"  - pa mean of mean body z jerk comp in freq domain
+* C52  "fbodyaccjerkxstd"   - pa mean of stdev of body x jerk comp in freq domain
+* C53  "fbodyaccjerkystd"   - pa mean of stdev of body y jerk comp in freq domain
+* C54  "fbodyaccjerkzstd"   - pa mean of stdev of body z jerk comp in freq domain
+* C55  "fbodygyroxmean"	    - pa mean of mean body gyro x comp in freq domain
+* C56  "fbodygyroymean"	    - pa mean of mean body gyro y comp in freq domain
+* C57  "fbodygyrozmean"  	- pa mean of mean body gyro z comp in freq domain
+* C58  "fbodygyroxstd"		- pa mean of stdev of body gyro x comp in freq domain
+* C59  "fbodygyroystd"  	- pa mean of stdev of body gyro y comp in freq domain
+* C60  "fbodygyrozstd"		- pa mean of stdev of body gyro z comp in freq domain
+* C61  "fbodyaccmagmean"	- pa mean of mean body acc mag in freq domain
+* C62	"fbodyaccmagstd"	- pa mean of stdev of body acc mag in freq domain
+* C63  "fbodyaccjerkmagmean"- pa mean of mean body jerk mag in freq domain
+* C64  "fbodyaccjerkmagstd" - pa mean of stdev of body jerk mag in freq domain
+* C65  "fbodygyromagmean"	- pa mean of mean body gyro mag in freq domain
+* C66  "fbodygyromagstd"	- pa mean of stdev of body gyro mag in freq domain
+* C67	"fbodygyrojerkmagmean"- pa mean of mean body gyro jerk mag in freq domain
+* C68  "fbodygyrojerkmagstd"- pa mean of stdev of bory gyro jerk mag in freq domain

@@ -7,7 +7,7 @@ Assumptions:  All referenced files are in a working directory called "code,"
               which sits inside of the user's home directory.  (I am working
               on a Linux machine, so "~/code" translates to "/home/<my username>/code".)
 
-Pseudocode:
+Pseudocode/steps:
 
 * set the working directory to ~/code
 * read in training dataset into data frame train
@@ -24,14 +24,15 @@ Pseudocode:
 * row bind test and train frames, interleaving subjects in numeric order, into tmp
 * remove columns not required for assignment (leaving only mean and std vars)
 * give the columns of tmp relevant and readable variable names
+* load the plyr library for colwise mean application
 * initialize output data frame
-* set first column of output frame to be the list of subjects, each repeated 6 times
-* set second column of output frame to be the list of activities, 1 - 6 for each subject
-* subset tmp frame by subject
-* subset subject frames by activity
-* calculate per activity means per subject
-* store these means in subject frames
-* glue subject frames together by row
-* column bind subject frames (containing per activity means) with output frame
-* cast output activity column as character
-* write output frame as a tab-delimited table
+* loop through subjects (i = 1:30) doing the following:
+* subset tmp by subject == i
+* subset subject frame by activity (1 - 6)
+* for each activity-based subset, calculate colwise means and store in activity-based subset
+* row bind the new single observation (66 variable) subsets into a 6 observation subset
+* make a temporary activities frame containing the 6 activity labels
+* make a temporary subject number frame containing i repeated 6 times
+* column bind subject number frame, activities frame, and 6 observation subset into temporary output frame
+* rowbind temporary output frame onto real output frame
+* at end of loop, write output frame as a tab-delimited table
